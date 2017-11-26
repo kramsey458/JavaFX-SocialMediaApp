@@ -1,11 +1,12 @@
-package sample;
+package FacebookGUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.DataModel.UserData;
-import sample.DataModel.UserModel;
+import FacebookGUI.Controllers.Controller;
+import FacebookGUI.DataModel.UserData;
+import FacebookGUI.DataModel.UserModel;
 
 public class MainApp extends Application {
 

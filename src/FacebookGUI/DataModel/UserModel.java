@@ -1,15 +1,13 @@
-package sample.DataModel;
+package FacebookGUI.DataModel;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 
-import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class UserModel implements sample.DataModel.Observable{
+public class UserModel implements FacebookGUI.DataModel.Observable{
 
     private StringProperty firstName;
     private StringProperty lastName;

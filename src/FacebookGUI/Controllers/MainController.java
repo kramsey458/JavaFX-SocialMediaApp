@@ -1,4 +1,4 @@
-package sample.Controllers;
+package FacebookGUI.Controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,17 +10,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import sample.Controller;
-import sample.DataModel.UserModel;
-import sample.DataModel.WallPost;
-import sample.MainApp;
+import FacebookGUI.DataModel.UserModel;
+import FacebookGUI.DataModel.WallPost;
+import FacebookGUI.MainApp;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
-import java.util.Observer;
 
-public class MainController implements Controller, sample.DataModel.Observer {
+public class MainController implements Controller, FacebookGUI.DataModel.Observer {
     @FXML
     private Label title;
 

@@ -1,4 +1,4 @@
-package sample.DataModel;
+package FacebookGUI.DataModel;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

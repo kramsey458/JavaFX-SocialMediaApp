@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.SimulatePostController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FacebookGUI.Controllers.SimulatePostController">
    <children>
       <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="7.0" prefHeight="32.0" prefWidth="123.0" text="Add New Post" textAlignment="CENTER">
          <font>

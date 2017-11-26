@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FacebookGUI.Controllers.LoginController">
    <children>
       <Button layoutX="336.0" layoutY="315.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#Login" prefHeight="30.0" prefWidth="128.0" text="Login" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="336.0" />
       <TextField fx:id="txtUsername" alignment="CENTER" layoutX="313.0" layoutY="202.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Username" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="312.0">

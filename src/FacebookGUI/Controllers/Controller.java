@@ -1,6 +1,6 @@
-package sample;
+package FacebookGUI.Controllers;
 
-import sample.MainApp;
+import FacebookGUI.MainApp;
 
 public interface Controller {
     public void setMainApp(MainApp mainApp);

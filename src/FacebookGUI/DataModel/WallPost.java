@@ -1,4 +1,4 @@
-package sample.DataModel;
+package FacebookGUI.DataModel;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

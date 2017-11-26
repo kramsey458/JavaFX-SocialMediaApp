@@ -1,4 +1,4 @@
-package sample.DataModel;
+package FacebookGUI.DataModel;
 
 public interface Observer {
    void update();
