@@ -1,5 +1,8 @@
 package FacebookGUI;
 
+import FacebookGUI.JSONParsing.JSONFriendsParser;
+import FacebookGUI.JSONParsing.JSONNewsfeedParser;
+import FacebookGUI.JSONParsing.JSONUserParser;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +14,7 @@ import FacebookGUI.DataModel.UserModel;
 public class MainApp extends Application {
 
     private UserData userData = new UserData();
+    private UserModel currentUser;
 
     public MainApp(){
         UserModel kyler = new UserModel("Kyler", "Ramsey", "user", "pass");
@@ -25,7 +29,16 @@ public class MainApp extends Application {
         userData.addUser(kyler);
         userData.addUser(kristin);
         userData.addUser(ken);
-        userData.setCurrentUser(null);
+        setCurrentUser(null);
+        //JSONFriendsParser friendWriter = new JSONFriendsParser(userData);
+        //friendWriter.initializeFriends();
+        //friendWriter.readFriends();
+       // JSONUserParser userParser = new JSONUserParser(userData);
+        //userParser.initializeUsers();
+       // userParser.readUsers();
+        JSONNewsfeedParser newsfeedParser = new JSONNewsfeedParser(userData);
+        //newsfeedParser.initializeNewsfeed();
+        newsfeedParser.readNewsfeed();
     }
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -49,5 +62,13 @@ public class MainApp extends Application {
 
     public UserData getUserData() {
         return userData;
+    }
+
+    public UserModel getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(UserModel currentUser) {
+        this.currentUser = currentUser;
     }
 }
