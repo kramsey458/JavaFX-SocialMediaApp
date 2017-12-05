@@ -13,10 +13,11 @@ import FacebookGUI.DataModel.UserModel;
 
 public class MainApp extends Application {
 
-    private UserData userData = new UserData();
+    private UserData userData = UserData.getInstance();
     private UserModel currentUser;
 
     public MainApp(){
+        /*
         UserModel kyler = new UserModel("Kyler", "Ramsey", "user", "pass");
         UserModel kristin = new UserModel("Kristin", "Ramsey", "user1", "pass1");
         UserModel ken = new UserModel("Ken", "Ramsey", "user2", "pass2");
@@ -29,16 +30,27 @@ public class MainApp extends Application {
         userData.addUser(kyler);
         userData.addUser(kristin);
         userData.addUser(ken);
+        */
         setCurrentUser(null);
-        //JSONFriendsParser friendWriter = new JSONFriendsParser(userData);
-        //friendWriter.initializeFriends();
-        //friendWriter.readFriends();
-       // JSONUserParser userParser = new JSONUserParser(userData);
-        //userParser.initializeUsers();
-       // userParser.readUsers();
+        initializeUserData();
+    }
+
+    private void initializeUserData(){
+        JSONUserParser userParser = new JSONUserParser(userData);
+        userParser.addUsersToUserData();
+        JSONFriendsParser friendsParser = new JSONFriendsParser(userData);
+        friendsParser.addFriendsToUserData();
         JSONNewsfeedParser newsfeedParser = new JSONNewsfeedParser(userData);
-        //newsfeedParser.initializeNewsfeed();
-        newsfeedParser.readNewsfeed();
+        newsfeedParser.addNewsfeedToUserData();
+    }
+
+    public void saveUserData(){
+        JSONUserParser userParser = new JSONUserParser(userData);
+        JSONFriendsParser friendsParser = new JSONFriendsParser(userData);
+        JSONNewsfeedParser newsfeedParser = new JSONNewsfeedParser(userData);
+        userParser.initializeUsers();
+        friendsParser.initializeFriends();
+        newsfeedParser.initializeNewsfeed();
     }
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -48,6 +60,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setTitle("Bookface");
 
         setDestinationControllerDataSource(loader.getController());
     }
