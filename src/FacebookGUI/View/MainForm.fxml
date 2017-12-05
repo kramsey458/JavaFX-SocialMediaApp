@@ -5,6 +5,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,7 +21,7 @@
                      <image>
                         <Image url="@../Images/defaultProfile.jpg" />
                      </image></ImageView>
-                  <TableView fx:id="friendTable" layoutX="5.0" layoutY="174.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="420.0" prefWidth="209.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="174.0">
+                  <TableView fx:id="friendTable" layoutX="5.0" layoutY="174.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#clickItemFriends" prefHeight="420.0" prefWidth="209.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="174.0">
                     <columns>
                       <TableColumn fx:id="firstNameColumn" minWidth="-1.0" prefWidth="208.0" resizable="false" text="Friend List" />
                     </columns>
@@ -37,9 +38,14 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="14.0" prefHeight="35.0" prefWidth="248.0">
+                              <TableView fx:id="searchTable" layoutX="312.0" layoutY="25.0" onMouseClicked="#clickItem" prefHeight="124.0" prefWidth="269.0">
+                                <columns>
+                                  <TableColumn fx:id="searchColumn" prefWidth="266.0" text="User List" />
+                                </columns>
+                              </TableView>
+                              <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Fullname">
                                  <font>
-                                    <Font size="24.0" />
+                                    <Font size="20.0" />
                                  </font>
                               </Label>
                               <TableView fx:id="myPostsTable" layoutY="148.0" prefHeight="210.0" prefWidth="582.0" AnchorPane.bottomAnchor="-15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="148.0">
@@ -48,10 +54,14 @@
                                  </columnResizePolicy>
                                  <columns>
                                     <TableColumn fx:id="postDateColumn" maxWidth="91.0" prefWidth="91.0" text="Date" />
-                                    <TableColumn fx:id="postColumn" prefWidth="489.0" text="Content" />
+                                    <TableColumn fx:id="postColumn" prefWidth="489.0" text="My Wall" />
                                  </columns>
                               </TableView>
                               <Button fx:id="simulateButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#simulateWallPost" prefHeight="25.0" prefWidth="120.0" text="Simulate Newsfeed" />
+                              <Button fx:id="addPostButton" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#addWallPost" prefHeight="25.0" prefWidth="120.0" text="Write Post" />
+                              <Button fx:id="logoutButton" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="120.0" text="Logout" />
+                              <TextField fx:id="filterField" alignment="CENTER" layoutX="312.0" layoutY="2.0" prefHeight="25.0" prefWidth="269.0" promptText="Search users" />
+                              <Button layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#settingsClicked" prefHeight="25.0" prefWidth="120.0" text="Settings" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -60,7 +70,7 @@
                                 <columns>
                                   <TableColumn fx:id="newsfeedNameColumn" maxWidth="88.0" prefWidth="88.0" text="Friend" />
                                     <TableColumn fx:id="newsfeedDateColumn" maxWidth="89.0" prefWidth="89.0" text="Date" />
-                                    <TableColumn fx:id="newsfeedColumn" prefWidth="402.0" text="Content" />
+                                    <TableColumn fx:id="newsfeedColumn" prefWidth="402.0" text="Newsfeed" />
                                 </columns>
                               </TableView>
                            </children>

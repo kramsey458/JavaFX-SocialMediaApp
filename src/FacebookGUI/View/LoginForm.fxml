@@ -25,5 +25,6 @@
             <Font name="Bookman Old Style Bold" size="36.0" />
          </font>
       </Label>
+      <Button layoutX="337.0" layoutY="363.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#SegueCreateAccount" prefHeight="30.0" prefWidth="128.0" text="Create Account" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="336.0" />
    </children>
 </AnchorPane>

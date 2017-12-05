@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -11,9 +12,7 @@ import FacebookGUI.DataModel.UserModel;
 import FacebookGUI.MainApp;
 
 
-public class LoginController implements Controller {
-    @FXML
-    private Label labelStatus;
+public class CreateAccountController implements Controller {
 
     @FXML
     private TextField txtUsername;
@@ -21,36 +20,35 @@ public class LoginController implements Controller {
     @FXML
     private TextField txtPassword;
 
+    @FXML
+    private TextField txtFirstName;
+
+    @FXML
+    private TextField txtLastName;
+
+    @FXML
+    private Button submitButton;
+
     private MainApp mainApp;
 
-    public void Login(ActionEvent event) throws Exception{
-        UserModel testUserModel = getCurrentUser(txtUsername.getText());
-        if (testUserModel != null && testUserModel.validatePassword(txtPassword.getText())) {
-            labelStatus.setText("Login Success");
-            Stage stage = (Stage) labelStatus.getScene().getWindow();
-            stage.close();
-            mainApp.setCurrentUser(testUserModel);
-            segueNewFrame("View/MainForm.fxml");
-        } else {
-            labelStatus.setText("Failed");
-        }
-    }
-
-    public void SegueCreateAccount(ActionEvent event) throws Exception{
-        segueNewFrame("View/CreateAccountForm.fxml");
+    public void CreateAccount(ActionEvent event) throws Exception{
+        String firstname = txtFirstName.getText();
+        String lastname = txtLastName.getText();
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        mainApp.getUserData().addUser(new UserModel(firstname, lastname, username, password));
+        Stage stage = (Stage) txtFirstName.getScene().getWindow();
+        stage.close();
     }
 
     public void segueNewFrame(String form) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-
         loader.setLocation(MainApp.class.getResource(form));
         Stage primaryStage = new Stage();
-        if (mainApp.getCurrentUser() != null)
-            primaryStage.setTitle(mainApp.getCurrentUser().getFullName());
         Scene scene = new Scene(loader.load());
-        setDestinationControllerDataSource(loader.getController());
         primaryStage.setScene(scene);
         primaryStage.show();
+        setDestinationControllerDataSource(loader.getController());
     }
 
     public void setMainApp(MainApp mainApp){

@@ -38,6 +38,7 @@ public class UserModel implements FacebookGUI.DataModel.Observable{
     }
 
 
+
     public void setObserver(Observer o){
         observer = o;
     }
@@ -65,6 +66,10 @@ public class UserModel implements FacebookGUI.DataModel.Observable{
         return password.toString().equals(password.toString());
     }
 
+    public void removeFriend(UserModel friend){
+        getFriendList().remove(friend);
+    }
+
     public void addWallPost(String post){
         WallPost newPost = new WallPost(LocalDate.now(), post, this.getFullName());
         wallPosts.add(newPost);
@@ -75,6 +80,7 @@ public class UserModel implements FacebookGUI.DataModel.Observable{
     public String getFullName() {
         return fullName.get();
     }
+
 
     public StringProperty fullNameProperty() {
         return fullName;
@@ -118,5 +124,45 @@ public class UserModel implements FacebookGUI.DataModel.Observable{
 
     public StringProperty passwordProperty() {
         return password;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName.set(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName.set(lastName);
+    }
+
+    public void setWallPosts(ObservableList<WallPost> wallPosts) {
+        this.wallPosts = wallPosts;
+    }
+
+    public ObservableList<WallPost> getNewsfeed() {
+        return newsfeed;
+    }
+
+    public void setNewsfeed(ObservableList<WallPost> newsfeed) {
+        this.newsfeed = newsfeed;
+    }
+
+    public void setFriendList(ObservableList<UserModel> friendList) {
+        this.friendList = friendList;
+    }
+
+    public void setUsername(String username) {
+        this.username.set(username);
+    }
+
+    public void setPassword(String password) {
+        this.password.set(password);
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName.set(fullName);
+    }
+
+    public Observer getObserver() {
+        return observer;
     }
 }

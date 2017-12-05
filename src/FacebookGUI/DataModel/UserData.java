@@ -2,13 +2,21 @@ package FacebookGUI.DataModel;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 public class UserData {
-    private ObservableList<UserModel> userData = FXCollections.observableArrayList();
-    private UserModel currentUser;
+    private ObservableList<UserModel> userDataList = FXCollections.observableArrayList();
+    private static UserData single_instance = null;
+    private UserData(){
 
+    }
+
+    public static UserData getInstance(){
+        if (single_instance == null){
+            single_instance = new UserData();
+        }
+        return single_instance;
+    }
     public UserModel searchUser(String username){
-        for (UserModel userModel : userData){
+        for (UserModel userModel : userDataList){
             if (userModel.validateUsername(username)){
                 return userModel;
             }
@@ -17,19 +25,15 @@ public class UserData {
     }
 
     public void addUser(UserModel user){
-        userData.add(user);
+        userDataList.add(user);
     }
 
-    public UserModel getCurrentUser() {
-        return currentUser;
+    public ObservableList<UserModel> getUserDataList() {
+        return userDataList;
     }
 
-    public void setCurrentUser(UserModel currentUser) {
-        this.currentUser = currentUser;
-    }
-
-    public ObservableList<UserModel> getUserData() {
-        return userData;
+    public void setUserDataList(ObservableList<UserModel> userDataList) {
+        this.userDataList = userDataList;
     }
 
 }
